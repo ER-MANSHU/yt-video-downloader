@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>YouTube Video Downloader</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 40px; }
+        input[type="text"] { width: 60%; padding: 8px; font-size: 16px; }
+        button { padding: 10px 20px; font-size: 16px; }
+        .error { color: red; }
+        .success { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>YouTube Video Downloader</h1>
+    <form method="POST">
+        <input type="text" name="url" placeholder="Enter YouTube video URL" required>
+        <button type="submit">Download</button>
+    </form>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+    {% if title %}
+        <div class="success">
+            <p>Downloaded: <strong>{{ title }}</strong></p>
+            <a href="{{ download_link }}">Click here to download your video</a>
+        </div>
+    {% endif %}
+</body>
+</html>
